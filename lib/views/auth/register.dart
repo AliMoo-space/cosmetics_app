@@ -285,7 +285,6 @@ class _RegisterViewState extends State<RegisterView> {
                 validator: (v) => v!.isEmpty ? 'Please enter value' : null,
               ),
               SizedBox(height: 16.h),
-
               AppInput(
                 labelText: 'Your Email',
                 hintText: 'Enter Your Email',
@@ -346,11 +345,11 @@ class _RegisterViewState extends State<RegisterView> {
                 },
               ),
               SizedBox(height: 16.h),
-              AppLoginOrRegister(isLogin: false),
             ],
           ),
         ),
       ),
+      bottomNavigationBar: AppLoginOrRegister(isLogin: false),
     );
   }
 }

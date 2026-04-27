@@ -23,8 +23,11 @@ class _LoginViewState extends State<LoginView> {
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
   bool isLoginClicked = false;
+  DataState? state;
 
-  Future<bool> loginData() async {
+  Future<void> loginData() async {
+    state = DataState.loading;
+    setState(() {});
     final phone = phoneController.text.trim();
     final password = passwordController.text.trim();
 
@@ -41,11 +44,11 @@ class _LoginViewState extends State<LoginView> {
       final model = UserData.fromJson(response.data);
       await CacheHelper.saveUserData(data: model);
       CacheHelper.setToken(model.token);
-      return true;
     } else {
+      state = DataState.error;
       showMsg(response.msg, isError: true);
-      return false;
     }
+    setState(() {});
   }
 
   @override
@@ -108,7 +111,6 @@ class _LoginViewState extends State<LoginView> {
                     return null;
                   },
                 ),
-
                 // ===== Forget Password =====
                 Align(
                   alignment: Alignment.centerRight,
@@ -125,7 +127,6 @@ class _LoginViewState extends State<LoginView> {
                   ),
                 ),
                 SizedBox(height: 18.h),
-
                 // ===== Login Button =====
                 AppButton(
                   onPressed: () async {
@@ -145,15 +146,12 @@ class _LoginViewState extends State<LoginView> {
                   isLoading: isLoginClicked,
                 ),
                 SizedBox(height: 43.h),
-
-                // ===== Register =====
-                AppLoginOrRegister(),
-                SizedBox(height: 50.h),
               ],
             ),
           ),
         ),
       ),
+      bottomNavigationBar: AppLoginOrRegister(),
     );
   }
 }

@@ -38,6 +38,7 @@ class _AppInputState extends State<AppInput> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (widget.withCountryCode)
           AppCountryCode(onCountryCodeChanged: widget.onCountryCodeChanged),

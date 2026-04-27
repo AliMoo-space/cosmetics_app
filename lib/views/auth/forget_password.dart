@@ -22,7 +22,6 @@ class _ForgetPasswordState extends State<ForgetPassword> {
 
   Future<void> sendOtp() async {
     if (phoneController.text.trim().isEmpty) return;
-
     setState(() => isLoading = true);
     final response = await DioHelper.postRequest(
       endPoint: '/api/Auth/forgot-password',

@@ -1,7 +1,7 @@
 import 'package:cosmetics/core/logic/cach_helper.dart';
 import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/ui/app_image.dart';
-import 'package:cosmetics/views/auth/login.dart';
+import 'package:cosmetics/views/auth/login/view.dart';
 import 'package:cosmetics/views/home/view.dart';
 import 'package:cosmetics/views/on_boarding.dart';
 import 'package:flutter/material.dart';

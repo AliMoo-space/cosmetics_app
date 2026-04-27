@@ -63,7 +63,11 @@ class _AppCountryCodeState extends State<AppCountryCode> {
           child: isFailed
               ? IconButton(onPressed: getData, icon: Icon(Icons.replay))
               : list == null
-              ? Center(child: CircularProgressIndicator())
+              ? SizedBox(
+                  width: 25.w,
+                  height: 25.h,
+                  child: Center(child: CircularProgressIndicator()),
+                )
               : DropdownButton<String>(
                   padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 3.h),
                   value: myValue,

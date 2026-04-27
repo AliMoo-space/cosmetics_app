@@ -1,7 +1,9 @@
 import 'package:cosmetics/core/logic/cach_helper.dart';
 import 'package:cosmetics/core/logic/helper_methods.dart';
-import 'package:cosmetics/views/auth/login.dart';
+import 'package:cosmetics/views/auth/login/view.dart';
 import 'package:dio/dio.dart';
+
+enum DataState { loading, success, error }
 
 class DioHelper {
   static final _dio = Dio(
